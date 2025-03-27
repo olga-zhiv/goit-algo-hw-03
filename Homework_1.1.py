@@ -14,13 +14,11 @@ def get_days_from_today(date):  # Оголошуємо функцію, яка з
 
     try:   # Обробка можливих помилок вводу дати
 
-        date_string = input( "Введіть дату y форматі: %Y.%m.%d")   # Введення користувачем дати
-
         datetime_object = datetime.strptime(date_string, "%Y.%m.%d").date()  # Форматування дати із строки в об'єкт
 
         new_date = (datetime_object - current_datetime).days    # Обчислення різниці дат
 
-        print(f" Різниця між датами становить: {new_date} днів")  # Вивід кількості днів користувачу
+        return new_date  # Повернення кількості днів
 
 
     except ValueError: 
@@ -29,4 +27,5 @@ def get_days_from_today(date):  # Оголошуємо функцію, яка з
 
 
 
-get_days_from_today(date)  # Виклик функції
+days = get_days_from_today("2025.03.29")  # Виклик функції
+print(days)
